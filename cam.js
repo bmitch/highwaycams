@@ -1,5 +1,4 @@
 var cams = {
-
 	"Nanaimo Airport - N" 	: "http://images.drivebc.ca/bchighwaycam/pub/cameras/476.jpg",
 	"Nanaimo Airport - S" 	: "http://images.drivebc.ca/bchighwaycam/pub/cameras/479.jpg",
 	"Ladysmith"				: "http://images.drivebc.ca/bchighwaycam/pub/cameras/430.jpg",
@@ -30,26 +29,26 @@ var cams = {
 	"Admirals-McKenzie - W"	: "http://images.drivebc.ca/bchighwaycam/pub/cameras/351.jpg",
 	"Admirals-McKenzie - E"	: "http://images.drivebc.ca/bchighwaycam/pub/cameras/352.jpg",
 	""	: ""
-
-
 }
-var htmlToInsert = '<h1 id="title">Cams</h1>';
-$( document ).ready(function() {
-  
-	i = 0;
-	for (var key in cams) {
 
+var htmlToInsert = '<h1 id="title">Cams</h1>';
+
+$( document ).ready(function() {
+	i = 0;
+	for (var key in cams) 
+	{
 		html = "";
+		
 		if (i % 3 == 0 || i == 0)
 		{
-			html = '<div class="row-fluid">\n';
+			html = '<div class="row">\n';
 		}
-		if (cams.hasOwnProperty(key)) {
-			//alert(key + " -> " + cams[key]);
-			html += '\t<div class="span4"><p>' + key + '</p>\n';
-			html += '\t\t<img src="' + cams[key] + '"/>\n';
+		
+		if (cams.hasOwnProperty(key)) 
+		{
+			html += '\t<div class="col-md-4"><p class="title">' + key + '</p>\n';
+			html += '\t\t<img class="img-rounded img-responsive" src="' + cams[key] + '"/>\n';
 			html += '\t</div>\n';
-			
 		}
 
 		if (i % 3 == 2)
@@ -60,10 +59,8 @@ $( document ).ready(function() {
 		htmlToInsert += html;
 			
 		i++;
-
 	}
 
-$( htmlToInsert ).prependTo( ".container" );
-console.log(htmlToInsert);
+	$( htmlToInsert ).prependTo( ".container" );
 
 });
